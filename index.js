@@ -2,6 +2,13 @@
 
 // require all of your classes/constructors, (Manager, Engineer, Intern)
 // require packages needed (inquirer, path, fs)
+const inquirer = require('inquirer');
+const fs = require('fs');
+
+const generatePage = require()
+// const lib = require('lib'); like utils?
+
+
 
 // set up an empty array for the Team Members
 
