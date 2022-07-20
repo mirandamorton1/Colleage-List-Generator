@@ -1,12 +1,63 @@
 // INDEX.JS //
 
 // require all of your classes/constructors, (Manager, Engineer, Intern)
-// require packages needed (inquirer, path, fs)
+// require packages needed (inquirer, path, fs) //output. 
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generatePage = require()
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = reqiure('./lib/intern')
+
+const generatePage = require('')
 // const lib = require('lib'); like utils?
+
+const members = [];
+
+// function promptManager (){
+//  inquirer.prompt([
+//   {
+//     type: "input",
+//     name: "name",
+//     message: "What is the team manager's name?",
+//   },
+//   {
+//     type: "input",
+//     name: "id",
+//     message: "What is the manager's ID?",
+//   },
+//   { 
+//     type: "input",
+//     name: "email",
+//     message: "What is the manager's email?",
+//   },
+//   {
+//     type: "input",
+//     name: "officeNumber",
+//     message: "What is the manager's office number?",
+//   },
+// ])
+//   .then(answers => {
+//     const manager = new Manager (answers.name, answers.id, answers.email, answers.officeNumber);
+//     console.log(answers);
+//     // console.log(manager);do i need this?
+//     members.push(manager);
+
+//     promptEmployee();
+//   })
+
+  // function init(){
+  //   inquirer.prompt(questions).then((data) => {
+  //     const filename =`${data.name.toLowerCase().split(' ').join(' ')}.json`
+
+  //     fs.writeFile("filename", generatePage(data), (err) => err? console.log(err): console.log('Success!')
+    //     );
+//  });
+//  }
+//  init(); another option to write that?
+
+// };
+
 
 
 
@@ -19,14 +70,37 @@ function init() {
     // first thing you'll probably want to do is add a function for creating a manager, since that's the first thing you have to do
     // function for CREATING A MANAGER ///////////////
     function createManager() {
+      inquirer.prompt([
+        {
+          type: "input",
+          name: "name",
+          message: "What is the team manager's name?",
+        },
+        {
+          type: "input",
+          name: "id",
+          message: "What is the manager's ID?",
+        },
+        { 
+          type: "input",
+          name: "email",
+          message: "What is the manager's email?",
+        },
+        {
+          type: "input",
+          name: "officeNumber",
+          message: "What is the manager's office number?",
+        },
+      ])
       // use inquirer
       // and prompt to ask questions
   
       // once you finish your questions, you'll probably want to send those answers to a new instance of Manager (one of the classes you'll create and require above)
       .then((answers) => {
-      const manager = new Manager(
+      const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+      console.log(answers);
+      members.push(manager);
         //send your answers here
-      );
       // then you will need to push this new manager to the empty team array you set up above
       // and call the function for DETERMINING TYPE OF EMPLOYEE - we'll call it createTeam
       createTeam();
@@ -35,11 +109,31 @@ function init() {
   
     // function for DETERMINING TYPE OF EMPLOYEE //////////////////
     function createTeam() {
+      inquirer.prompt ([
+        {
+          type: 'list',
+          name: 'memberChoice',
+          message: 'Would you like to add more members to your team?',
+          choices: ['Engineer', 'Intern', 'None'],
+        }
+      ])
       // use inquirer
       // and prompt to ask questions - such as what type of employee they would like to add
   
       // then, based on their choice, run the function associated with adding that employee type
       .then((choice) => {
+        switch(choice.memberChoice) {
+          case 'Engineer':
+            addEngineer();
+            break;
+          case 'Intern':
+            addIntern();
+            break;
+          default:
+            buildTeam();
+    
+        }
+
       // conditional that runs function for employee type that the user selected
       // if they choose Intern, run addIntern function
       // if they no longer want to add members, you'll need to run the function that actually builds the team (creates the file, etc)
@@ -48,6 +142,11 @@ function init() {
   
     // function for ADDING A MEMBER /////////////////
     // a seperate function for each member type
+    
+    function addEngineer() {
+
+    }
+
     function addIntern() {
       // use inquirer
       // and prompt to ask questions
@@ -65,3 +164,4 @@ function init() {
   
     createManager();
   }
+  //call init()
