@@ -13,7 +13,7 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern')
 
-const generatePage = require('./src/template.js')
+const generatePage = require('./src/template')
 
 const members = [];
 // set up an empty array for the Team Members
