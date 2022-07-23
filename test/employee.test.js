@@ -1,10 +1,10 @@
 // INSTRUCTOR PROVIDED // 
 
-const Employee = require("../lib/Employee");
+const Employee = require("../lib/employee");
 
 test("Can instantiate Employee instance", () => {
   const e = new Employee();
-  expect(typeof(e)).toBe("object");
+  expect(e).toBe("object");
 });
 
 test("Can set name via constructor arguments", () => {
