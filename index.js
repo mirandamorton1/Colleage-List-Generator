@@ -52,7 +52,7 @@ function init() {
   
       // once you finish your questions, you'll probably want to send those answers to a new instance of Manager (one of the classes you'll create and require above)
       .then((answers) => {
-      const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+      const manager = new Manager(answers.name, answers.email, answers.id, answers.officeNumber);
       console.log(answers);
       members.push(manager);
         //send your answers here
@@ -126,7 +126,7 @@ function init() {
   
       // once you finish your questions, you'll probably want to send those answers to a new instance of Manager (one of the classes you'll create and require above)
       .then((answers) => {
-      const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+      const engineer = new Engineer(answers.name, answers.email, answers.id, answers.github);
       console.log(answers);
       members.push(engineer);
         //send your answers here
@@ -165,7 +165,7 @@ function init() {
   
       // once you finish your questions, you'll probably want to send those answers to a new instance of Manager (one of the classes you'll create and require above)
       .then((answers) => {
-      const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+      const intern = new Intern(answers.name, answers.email, answers.id, answers.school);
       console.log(answers);
       members.push(intern);
         //send your answers here
